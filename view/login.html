@@ -1,29 +1,29 @@
 <div class="container">
     <div class="titleLogin">
         <h2>Gerenciador de contas</h2>
-<hr>
+        <hr>
         <h5>Controle de gasto unificado</h5>
     </div>
 
-    <div class="row justify-content-md-center">
-        <div class=" col-4  boxLogin">
+    <div class="row ">
+        <div class="col-md-4 col-md-offset-4  boxLogin">
             <h1 style="text-align: center">Login</h1>
             <hr>
             <!-- Main Form -->
             <div class="login-form-1">
-                <form action="/dash/home" method="post">
+                <form>
                     <div class="main-login-form">
                         <div class="login-group">
                             <div class="form-group">
                                 <label for="email">E-mail</label>
-                                <input type="email" class="form-control" name="email" placeholder="e-mail">
+                                <input type="email" class="form-control" name="email" placeholder="e-mail" ng-model="user.email">
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Senha</label>
-                                <input type="password" class="form-control" name="pwd" placeholder="Senha">
+                                <input type="password" class="form-control" name="pwd" placeholder="Senha" ng-model="user.pwd">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block active">Logar</button>
+                        <button type="button" class="btn btn-primary btn-block" ng-show="user.email && user.pwd" ng-click="logar()">Logar</button>
                     </div>
                 </form>
             </div>
