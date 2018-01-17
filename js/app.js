@@ -1,1 +1,2 @@
-angular.module("uconta", [ ]);
+angular.module("uConta", [ "ngRoute" ]);
+

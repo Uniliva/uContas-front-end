@@ -1,0 +1,31 @@
+{
+  "name": "ucontas",
+  "version": "1.0.0",
+  "description": "Gerenciador de Contas - Front End",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uniliva/uContas-front-end.git"
+  },
+  "author": "Uniliva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uniliva/uContas-front-end/issues"
+  },
+  "homepage": "https://github.com/Uniliva/uContas-front-end#readme",
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-route": "^1.6.8",
+    "bootstrap": "^4.0.0-alpha.6"
+  },
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
