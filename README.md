@@ -10,5 +10,5 @@ Gerenciador de Contas - Front End
 - Angular: 1.6.7
 
 
-#Preparando o Ambiente para edição
-- Instale o angular 1.6.7 -> npm install angular@1.6.7
+#Preparando o Ambiente para execução
+- executar um npm i --production 
