@@ -12,6 +12,9 @@
             <!-- Main Form -->
             <div class="login-form-1">
                 <form>
+                    <div class="alert" ng-show="user.invalido">
+                        Usuario ou senha invalidos!
+                    </div>
                     <div class="main-login-form">
                         <div class="login-group">
                             <div class="form-group">
@@ -19,11 +22,11 @@
                                 <input type="email" class="form-control" name="email" placeholder="e-mail" ng-model="user.email">
                             </div>
                             <div class="form-group">
-                                <label for="pwd">Senha</label>
-                                <input type="password" class="form-control" name="pwd" placeholder="Senha" ng-model="user.pwd">
+                                <label for="senha">Senha</label>
+                                <input type="password" class="form-control" name="senha" placeholder="Senha" ng-model="user.senha">
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary btn-block" ng-show="user.email && user.pwd" ng-click="logar()">Logar</button>
+                        <button type="button" class="btn btn-primary btn-block" ng-show="user.email && user.senha" ng-click="logar()">Logar</button>
                     </div>
                 </form>
             </div>
