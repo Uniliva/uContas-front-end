@@ -4,6 +4,11 @@ angular.module("uConta").config(function ($routeProvider, $locationProvider) {
         templateUrl: "/view/login.html",
         controller: "loginController"
     })
+    .when('/dashboard',{
+        templateUrl: "/view/dashboard.html",
+        controller: "loginController"
+
+    })
     .otherwise({
         redirectTo: '/login'
     });
