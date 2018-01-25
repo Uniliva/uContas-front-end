@@ -10,7 +10,7 @@ angular.module("uConta").controller("loginController", function ($scope,userAPI,
 
 
         }).catch(function(erro){
-            console.log("deu merda"+ erro)
+            console.log("deu merda"+ erro.status)
         })
     }
 }
