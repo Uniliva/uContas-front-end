@@ -7,26 +7,27 @@
 
     <div class="row ">
         <div class="col-md-4 col-md-offset-4  boxLogin">
-            <h1 style="text-align: center">Login</h1>
+            <h1 class="textLogin">Login</h1>
             <hr>
             <!-- Main Form -->
             <div class="login-form-1">
-                <form>
-                    <div class="alert" ng-show="user.invalido">
-                        Usuario ou senha invalidos!
+                <form name="loginForm">
+                    <div class="alerta">
+                        {{user.msg}}
                     </div>
                     <div class="main-login-form">
                         <div class="login-group">
                             <div class="form-group">
                                 <label for="email">E-mail</label>
-                                <input type="email" class="form-control" name="email" placeholder="e-mail" ng-model="user.email">
+                                <input type="email" class="form-control" name="email" placeholder="e-mail" ng-model="user.email" ng-required="true">
                             </div>
                             <div class="form-group">
                                 <label for="senha">Senha</label>
-                                <input type="password" class="form-control" name="senha" placeholder="Senha" ng-model="user.senha">
+                                <input type="password" class="form-control" name="senha" placeholder="Senha" ng-model="user.senha" ng-required="true" ng-minlength="8">
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary btn-block" ng-show="user.email && user.senha" ng-click="logar()">Logar</button>
+                        <div class="loader" ng-show="estaCarregando"></div>
+                        <button type="button" class="btn btn-primary btn-block" ng-disabled="loginForm.$invalid" ng-show="!estaCarregando"  ng-click="logar()">Logar</button>
                     </div>
                 </form>
             </div>

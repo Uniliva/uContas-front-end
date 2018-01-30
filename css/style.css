@@ -6,7 +6,10 @@
 	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 	
 	margin-bottom: 50px;
-	padding: 35px;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	padding-left: 40px;
+	padding-right: 40px;
 }
 
 .titleLogin{
@@ -15,7 +18,28 @@
 	margin: 50px;
 }
 
-.alert{
+.textLogin{
+	text-align: center;
+	font-weight: 700;	
+}
+.alerta{
 	text-align: center;
 	color: rgb(207, 13, 13);
+	margin-bottom: 10px;
+}
+
+
+.loader {
+    margin-left: 40%;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #337ab7; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
