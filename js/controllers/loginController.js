@@ -3,9 +3,8 @@ angular.module("uConta").controller("loginController", function ($scope, userAPI
         $scope.estaCarregando = true;
         userAPI.validarUser($scope.user).then(function (result) {
             var userConsultado = result.data;
-            console.log(userConsultado)
             if (userConsultado.isValido) {
-                $location.path("/dashboard");
+                $location.path("/home");
             } else {
                 $scope.user.msg = "Usuario ou senha invalidos!";
                 $scope.estaCarregando = false;

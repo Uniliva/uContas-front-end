@@ -1,0 +1,64 @@
+<div ng-include="'view/base/cabecalho.html'"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 ">
+            <h4>Selecione o Orçamento</h4>    
+            <hr>
+            <form>
+                <div class="row">
+                    <div class="col-md-4  col-md-offset-2">
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>orcamento</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary btn-block">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <hr>
+    <h4>Contas referente ao Orçamento ##</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Local</th>
+                    <th scope="col">Membro</th>
+                    <th scope="col">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>01/05/2018</td>
+                    <td>Teste de Compa</td>
+                    <td>Chama supermecados</td>
+                    <td>Uniliva</td>
+                    <td>200,00</td>
+                </tr>
+
+                <tr>
+                    <td colspan="5" style="text-align: right">
+                        <strong> Total</strong>
+                    </td>
+                    <td>200.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div ng-include="'view/base/rodape.html'"></div>
