@@ -1,2 +1,2 @@
-angular.module("uConta", [ "ngRoute" ]);
+angular.module("uConta", [ "ngRoute", "ngMessages" ]);
 

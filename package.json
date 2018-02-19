@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "lite-server",
-    "start": "node server.js" 
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Uniliva/uContas-front-end#readme",
   "dependencies": {
     "angular": "^1.6.7",
+    "angular-messages": "^1.6.9",
     "angular-route": "^1.6.8",
     "bootstrap": "^3.3.7",
     "express": "^4.16.2",

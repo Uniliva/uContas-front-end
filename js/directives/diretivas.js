@@ -1,7 +1,12 @@
-angular.module("uConta").directive("novaConta", function(){
+angular.module("uConta").directive("alerta", function(){
 return{
-    templateUrl:"/view/novaConta.html",
+    templateUrl:"/view/diretivas/alerta.html",
     replace:true,
-    restrict:E
+    restrict:"E",
+    scope:{
+        titulo:"@",
+        messagem:"@",
+        tipo:"@"
+    }
 }
 })

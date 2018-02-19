@@ -2,12 +2,143 @@
 
 <div class="container">
     <div class="row">
+
         <div class="col-md-6 col-md-offset-3">
-           em dev
+
+            <div class="panel panel-default">
+
+                <div class="panel-body">
+                    <h4>Adicionar orçamento</h4>
+                    <hr>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="descricao">Descrição</label>
+                                    <input type="text" id="descricao" class="form-control" placeholder="Descrição">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="valor">Valor</label>
+                                    <input type="text" id="valor" class="form-control" placeholder="Valor">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="data-inicio">Data inicio</label>
+                                    <input type="date" id="data-inicio" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="data-fim">Data fim</label>
+                                    <input type="date" id="data-fim" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h4>Adicionar membros ao orçamento</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-2">
+                                <div class="form-group">
+                                    <select id="membros" class="form-control">
+                                        <option>Selecione</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-primary btn-block">adicionar</button>
+                            </div>
+
+
+                            <div class="col-md-12">
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Nome</th>
+                                                <th scope="col">CPF</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+
+                                                <td>Uniliva Alves</td>
+                                                <td>teste@uconta.com</td>
+                                                <td class="col-md-3">
+                                                    <spam class="glyphicon glyphicon-pencil btn btn-primary btn-sm"></spam>
+                                                    <spam class="glyphicon glyphicon-remove btn btn-danger btn-sm"></spam>
+
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <hr>
+                            <div class="col-md-4 col-md-offset-8">
+                                <button type="submit" class="btn btn-primary btn-block">Salvar</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
         </div>
 
     </div>
 
-   
+
+    <h3>Membros cadastrados</h3>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>Uniliva Alves</td>
+                    <td>098006719-85</td>
+                    <td>Masculino</td>
+                    <td>teste@uconta.com</td>
+                    <td class="col-md-1">
+                        <spam class="glyphicon glyphicon-pencil btn btn-primary btn-sm"></spam>
+                        <spam class="glyphicon glyphicon-remove btn btn-danger btn-sm"></spam>
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
 
 <div ng-include="'view/base/rodape.html'"></div>
