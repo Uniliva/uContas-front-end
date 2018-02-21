@@ -1,36 +1,108 @@
 angular.module("uConta").controller("membroController", function ($scope, membroAPI, uContasUtil, $location) {
     $scope.msg = [];
     $scope.exibir = false;
-    $scope.membro=[];
+    $scope.membro = {};
+    $scope.cpfInvalido = false;
 
-    $scope.salvar = function () {
-        $scope.estaCarregando = true;
-        membroAPI.addUser($scope.membro).then(function (result) {
-            //delete  $scope.membro;
-            console.log(result.data);
-            $scope.exibir = true;
-            newMsg("success","Info","Membro adicionado com sucesso");
-            $scope.estaCarregando = false;
-        }).catch(function (erro) {
-            newMsg("success","Info","Não foi possivel adicionar o membro");
-            //delete  $scope.membro;
-            $scope.estaCarregando = false;
-        })
+    $scope.validaSenha = function () {
+        if ($scope.senha1 !== $scope.senha2) {
+            return true;
+        }
+        return false;
+    };
 
-    }
     $scope.validaCPF = function () {
-        console.log(uContasUtil.validaCPF($scope.membro.cpf));
-        if ((!$scope.membro.cpf == "") && (!uContasUtil.validaCPF($scope.membro.cpf)) ){
-            newMsg("danger","Erro","CPF inválido!")
-                $scope.exibir = true;       
+        if ((!$scope.membro.cpf == "") && (!uContasUtil.validaCPF($scope.membro.cpf))) {
+            $scope.cpfInvalido = true;
         } else {
-            $scope.exibir = false;
+            $scope.cpfInvalido = false;
         }
     }
 
-    var newMsg = function(tipo,titulo,texto){
+    $scope.editar = function (membro) {
+        $scope.membro = angular.copy(membro);
+        $scope.senha1 = membro.senha;
+        $scope.senha2 = membro.senha;
+    }
+
+    $scope.salvaAtualiza = function () {
+        if (estaCadastrado($scope.membro.cpf)) {
+            atualizar();
+        } else {
+            salvar();
+        }
+    }
+ 
+    $scope.remover = function(id){
+        console.log(id);
+        membroAPI.removeUser(id).then(function (result) {
+            $scope.exibir = true;
+            newMsg("success", result.data.status, result.data.msg);
+            carregaDados();
+        }).catch(function (erro) {
+            newMsg("danger", "Error", "Não foi possivel remover o membro");
+            $scope.exibir = true;
+        });
+    }
+
+    var newMsg = function (tipo, titulo, texto) {
         $scope.msg.tipo = tipo;
         $scope.msg.titulo = titulo;
-        $scope.msg.texto = texto;  
+        $scope.msg.texto = texto;
     }
+
+    var estaCadastrado = function (cpf) {
+        var x = $scope.MembrosCadastrados.map(x => x.cpf).indexOf(cpf);
+        if (x > -1) {
+            return true;
+        }
+        return false;
+    }
+
+    var carregaDados = function () {
+        membroAPI.buscaTodos().then(function (result) {
+            $scope.MembrosCadastrados = result.data;
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+    var limpa = function () {
+        delete $scope.membro;
+        delete $scope.senha1;
+        delete $scope.senha2;
+    }
+    
+    var salvar = function () {
+        $scope.membro.senha = $scope.senha1;
+        $scope.estaCarregando = true;
+        membroAPI.addUser($scope.membro).then(function (result) {
+            $scope.exibir = true;
+            limpa();
+            newMsg("success", result.data.status, result.data.msg);
+            $scope.estaCarregando = false;
+            carregaDados();
+        }).catch(function (erro) {
+            newMsg("danger", "Error", "Não foi possivel adicionar o membro");
+            limpa();
+            $scope.estaCarregando = false;
+        });
+    }
+
+    var atualizar = function (membro) {
+        $scope.membro.senha = $scope.senha1;
+        $scope.estaCarregando = true;
+        membroAPI.atualizaUser($scope.membro).then(function (result) {
+            $scope.exibir = true;
+            limpa();
+            newMsg("success", result.data.status, result.data.msg);
+            $scope.estaCarregando = false;
+            carregaDados();
+        }).catch(function (erro) {
+            newMsg("danger", "Error", "Não foi possivel atualizar o membro!");
+            limpa();
+            $scope.estaCarregando = false;
+        });
+    }
+    carregaDados();
 });

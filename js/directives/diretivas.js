@@ -9,4 +9,12 @@ return{
         tipo:"@"
     }
 }
-})
+}).directive("alertaTexto", function(){
+    return{ 
+        template:'<span class="alerta" ng-transclude> </span>'   ,    
+        replace:true,
+        restrict:"E",
+        transclude: true
+
+    }
+    })
