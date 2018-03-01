@@ -35,3 +35,28 @@ angular.module("uConta")
     
 })
 
+.service("localAPI", function ($http, config) {
+    var headers = {
+        headers: {
+            "Content-Type": "text/plain"
+        }
+    }
+
+    this.addLocal = function (local) {
+        return $http.post(config.baseUrl + "/locais/new", local,headers );
+    }
+
+    this.buscaTodos = function () {
+        return $http.get(config.baseUrl + "/locais/all");
+    }
+
+    this.atualizaLocal = function (local) {
+        return $http.post(config.baseUrl + "/locais/update", local,headers );
+    }
+    
+    this.removeLocal = function (id) {
+        return $http.get(config.baseUrl + "/locais/remove/"+id);
+    }
+    
+})
+

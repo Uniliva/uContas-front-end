@@ -1,6 +1,5 @@
-angular.module("uConta").controller("membroController", function ($scope, membroAPI, uContasUtil, $location) {
+angular.module("uConta").controller("membroController", function ($scope, membroAPI, uContasUtil) {
     $scope.msg = [];
-    $scope.exibir = false;
     $scope.membro = {};
     $scope.cpfInvalido = false;
 
@@ -44,7 +43,10 @@ angular.module("uConta").controller("membroController", function ($scope, membro
             $scope.exibir = true;
         });
     }
+    $scope.limpar = function(id){
+        limpa();
 
+    }
     var newMsg = function (tipo, titulo, texto) {
         $scope.msg.tipo = tipo;
         $scope.msg.titulo = titulo;

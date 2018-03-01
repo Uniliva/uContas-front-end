@@ -29,4 +29,6 @@ angular.module("uConta").service("uContasUtil", function () {
         } else
             return false;
     }
+
+
 });

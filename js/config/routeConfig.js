@@ -16,7 +16,7 @@ angular.module("uConta").config(function ($routeProvider, $locationProvider) {
     })    
     .when('/locais',{
         templateUrl: "/view/configuracao/locais.html",
-        controller: "loginController"
+        controller: "localController"
 
     })    
     .when('/orcamentos',{

@@ -45,3 +45,8 @@
     100% { transform: rotate(360deg); }
 }
 
+td {
+	vertical-align: middle;
+	display: table-cell;
+}
+

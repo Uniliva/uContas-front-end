@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="senha">Senha</label>
                                     <input type="password" id="senha1" name="senha1" class="form-control" ng-minlength="8" ng-maxlength="8" ng-model="senha1"
@@ -60,7 +60,7 @@
                                     <alerta-texto ng-show="membroForm.senha1.$error.minlength || membroForm.senha1.$error.maxlength">A senha deve ter 8 digitos!</alerta-texto>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="senha2">Repita a senha</label>
                                     <input type="password" id="senha2" class="form-control" ng-minlength="8" ng-maxlength="8" ng-model="senha2" ng-required="true">
@@ -70,7 +70,11 @@
                             </div>
 
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <br/>
+                                <button type="button" class="btn btn-danger btn-block"  ng-click="limpar()">Limpar</button>
+                            </div>
+                            <div class="col-md-3">
                                 <br/>
                                 <div class="loader" ng-show="estaCarregando"></div>
                                 <button type="submit" class="btn btn-primary btn-block" ng-disabled="membroForm.$invalid" ng-show="!estaCarregando" ng-click="salvaAtualiza()">Salvar</button>
@@ -87,7 +91,7 @@
         <h3>Membros cadastrados</h3>
         <hr>
         <div class="table-responsive">
-            <table class="table table-bordered">
+            <table class="table table-bordered ">
                 <thead>
                     <tr>
 
@@ -95,7 +99,8 @@
                         <th scope="col">CPF</th>
                         <th scope="col">Sexo</th>
                         <th scope="col">E-mail</th>
-                        <th scope="col"></th>
+                        <th scope="col" class="text-center">Editar</th>
+                        <th scope="col" class="text-center">Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -104,10 +109,13 @@
                         <td>{{membro.cpf}}</td>
                         <td>{{membro.sexo}}</td>
                         <td>{{membro.email}}</td>
-                        <td class="col-md-1">
-                            <spam class="glyphicon glyphicon-pencil btn btn-primary btn-sm" ng-click="editar(membro)"></spam>
-                            <spam class="glyphicon glyphicon-remove btn btn-danger btn-sm" ng-click="remover(membro.id)"></spam>
+                        <td class="col-md-1  text-center">
+                            <spam class="glyphicon glyphicon-pencil btn btn-primary btn-sm btn-block" ng-click="editar(membro)"></spam>
+                           
 
+                        </td>
+                        <td class="col-md-1 text-center">
+                                <spam class="glyphicon glyphicon-remove btn btn-danger btn-sm btn-block" ng-click="remover(membro.id)"></spam>
                         </td>
                     </tr>
 
