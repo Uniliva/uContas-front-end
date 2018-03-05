@@ -1,4 +1,6 @@
 angular.module("uConta").config(function ($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    $locationProvider.hashPrefix('');
     $routeProvider
     .when('/login', {
         templateUrl: "/view/login.html",
@@ -48,6 +50,5 @@ angular.module("uConta").config(function ($routeProvider, $locationProvider) {
         redirectTo: '/login'
     });
 
-    $locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
+
 });
