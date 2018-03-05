@@ -19,6 +19,7 @@ angular.module("uConta").controller("membroController", function ($scope, membro
     }
 
     $scope.editar = function (membro) {
+        $scope.exibir = false;
         $scope.membro = angular.copy(membro);
         $scope.senha1 = membro.senha;
         $scope.senha2 = membro.senha;
@@ -33,7 +34,6 @@ angular.module("uConta").controller("membroController", function ($scope, membro
     }
  
     $scope.remover = function(id){
-        console.log(id);
         membroAPI.removeUser(id).then(function (result) {
             $scope.exibir = true;
             newMsg("success", result.data.status, result.data.msg);
@@ -91,7 +91,7 @@ angular.module("uConta").controller("membroController", function ($scope, membro
         });
     }
 
-    var atualizar = function (membro) {
+    var atualizar = function () {
         $scope.membro.senha = $scope.senha1;
         $scope.estaCarregando = true;
         membroAPI.atualizaUser($scope.membro).then(function (result) {

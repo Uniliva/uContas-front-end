@@ -46,34 +46,39 @@
 
     </div>
 
-    
-    <h3>Locais cadastrados</h3>
-    <hr>
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
+    <div ng-show="locaisCadastrados.length > 0">
+        <h3>Locais cadastrados</h3>
+        <hr>
+        <div class="table-responsive">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
 
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Endereço</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr >
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col" class="text-center">Editar</th>
+                        <th scope="col" class="text-center">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="local in locaisCadastrados">
+                        <td>{{local.descricao}}</td>
+                        <td>{{local.endereco}}</td>
+                        <td class="col-md-1  text-center">
+                            <spam class="glyphicon glyphicon-pencil btn btn-primary btn-sm btn-block" ng-click="editar(local)"></spam>
+                           
 
-                    <td >Supermecado chama</td>
-                    <td>Rua Presidente costa e silva 520, helena maria</td>
-                    <td class="col-md-1">
-                            <spam  class="glyphicon glyphicon-pencil btn btn-primary btn-sm"></spam>
-                            <spam  class="glyphicon glyphicon-remove btn btn-danger btn-sm"></spam>
+                        </td>
+                        <td class="col-md-1 text-center">
+                                <spam class="glyphicon glyphicon-remove btn btn-danger btn-sm btn-block" ng-click="remover(local.id)"></spam>
+                        </td>
+                    </tr>
 
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
+
 
 </div>
 

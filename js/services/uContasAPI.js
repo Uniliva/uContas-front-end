@@ -43,6 +43,7 @@ angular.module("uConta")
     }
 
     this.addLocal = function (local) {
+        local.id=0;
         return $http.post(config.baseUrl + "/locais/new", local,headers );
     }
 
